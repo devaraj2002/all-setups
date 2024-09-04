@@ -2,9 +2,11 @@
 #export PATH=$PATH:/usr/local/bin/
 #source .bashrc
 
+# note: execute as root user(sudu su): after sh kops.sh --> first execute (export KOPS_STATE_STORE=s3://devs.k8s.local) 
+#  then at same time execute (kops validate cluster --wait 10m) commend then cluster is ready
+
 
 #! /bin/bash
-sudo su
 aws configure
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 wget https://github.com/kubernetes/kops/releases/download/v1.25.0/kops-linux-amd64
